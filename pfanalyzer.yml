@@ -1,0 +1,51 @@
+assets:
+  emaxis_slim_sp500:
+    equivalent: SPY
+    equivalent_scale: 27825.4209446
+  emaxis_slim_acwi:
+    equivalent: ACWI
+    equivalent_scale: 6914.77577116
+  nomura_nobl:
+    equivalent: NOBL
+    equivalent_scale: 5604.49454688
+  br_mmf:
+    equivalent: usd
+    equivalent_scale: 1
+  gs_mmf:
+    equivalent: usd
+    equivalent_scale: 100
+  2036.T:
+    leverage: 2
+    base: IAU
+  2255.T:
+    equivalent: TLT
+  2256.T:
+    equivalent: AGG
+  2257.T:
+    equivalent: LQD
+  2258.T:
+    equivalent: HYG
+  IAU:
+    equivalent: GLD
+  TLT:
+    asset_class: bond
+  AGG:
+    asset_class: bond
+  LQD:
+    asset_class: bond
+  HYG:
+    asset_class: bond
+  GLD:
+    asset_class: commodity
+  btc:
+    asset_class: crypto
+  eth:
+    asset_class: crypto
+  usd:
+    asset_class: cash
+  jpy:
+    asset_class: cash
+  ACWI:
+    market_portfolio: true
+  SPY:
+    market_portfolio: true

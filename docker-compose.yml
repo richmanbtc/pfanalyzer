@@ -1,0 +1,14 @@
+version: "3"
+services:
+  notebook:
+    build: .
+    ports:
+      - "8900:8888"
+    environment:
+      JUPYTER_ENABLE_LAB: 'yes'
+    volumes:
+      - ./data:/app/data:ro
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src:ro
+      - ./pfanalyzer.yml:/app/pfanalyzer.yml:ro
+    command: start-notebook.sh --NotebookApp.token=''
