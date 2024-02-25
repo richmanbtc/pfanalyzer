@@ -16,7 +16,7 @@ assets:
     equivalent_scale: 100
   2036.T:
     leverage: 2
-    base: IAU
+    base: GLDM
   2255.T:
     equivalent: TLT
   2256.T:
@@ -26,7 +26,11 @@ assets:
   2258.T:
     equivalent: HYG
   IAU:
-    equivalent: GLD
+    equivalent: GLDM
+  GLD:
+    equivalent: GLDM
+  GLDM:
+    asset_class: commodity
   TLT:
     asset_class: bond
   AGG:
@@ -35,8 +39,6 @@ assets:
     asset_class: bond
   HYG:
     asset_class: bond
-  GLD:
-    asset_class: commodity
   btc:
     asset_class: crypto
   eth:
