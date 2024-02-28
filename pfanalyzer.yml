@@ -14,6 +14,8 @@ assets:
   gs_mmf:
     equivalent: usd
     equivalent_scale: 100
+  1540.T:
+    equivalent: GLDM
   2036.T:
     leverage: 2
     base: GLDM

@@ -9,6 +9,8 @@ if [ ! -d "$data_dir" ]; then
   exit
 fi
 
+tmp_dir=$(mktemp -d)
+
 command="jupyter nbconvert \
   --to notebook \
   --output-dir='/output' \
@@ -29,8 +31,15 @@ docker run --rm \
   -v "./notebooks:/app/notebooks:ro" \
   -v "./src:/app/src:ro" \
   -v "./pfanalyzer.yml:/app/pfanalyzer.yml:ro" \
-  -v "/tmp:/output" \
+  -v "${tmp_dir}:/output" \
   -e "PFANALYZER_ANONYMIZED=${PFANALYZER_ANONYMIZED:-0}" \
   pfanalyzer-tmp bash -c "${command}"
 
-open /tmp/report.ipynb
+report_path="${tmp_dir}/report.ipynb"
+
+mkdir -p "${data_dir}/reports"
+date_str=$(date "+%Y%m%d_%H%M%S")
+output_path="${data_dir}/reports/${date_str}.ipynb"
+cp "${report_path}" ${output_path}
+
+open "${output_path}"
