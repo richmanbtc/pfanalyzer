@@ -9,6 +9,7 @@ if [ ! -d "$data_dir" ]; then
   exit
 fi
 
+repo_root="$(dirname -- "${BASH_SOURCE[0]}")/../"
 tmp_dir=$(mktemp -d)
 
 command="jupyter nbconvert \
@@ -25,6 +26,9 @@ command="jupyter nbconvert \
   /app/notebooks/report.ipynb \
 "
 
+(
+cd ${repo_root}
+
 docker build -t pfanalyzer-tmp .
 docker run --rm \
   -v "${data_dir}:/app/data:ro" \
@@ -34,6 +38,7 @@ docker run --rm \
   -v "${tmp_dir}:/output" \
   -e "PFANALYZER_ANONYMIZED=${PFANALYZER_ANONYMIZED:-0}" \
   pfanalyzer-tmp bash -c "${command}"
+)
 
 report_path="${tmp_dir}/report.ipynb"
 
