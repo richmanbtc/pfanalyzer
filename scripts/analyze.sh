@@ -9,7 +9,7 @@ if [ ! -d "$data_dir" ]; then
   exit
 fi
 
-repo_root="$(dirname -- "${BASH_SOURCE[0]}")/../"
+repo_root="$(dirname "$(readlink "$0" || echo "$0")")/../"
 tmp_dir=$(mktemp -d)
 
 command="jupyter nbconvert \
